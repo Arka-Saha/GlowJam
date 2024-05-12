@@ -1,2 +1,7 @@
-# Piano-Lights
-Lights glowing with piano notes, with the help of MIDI Services
+# Piano-Lights by ARKA
+## Using MIDI Services
+
+### Packages Used: ProMIDI, LCDi2c
+### Components: Arduino UNO, LCD, I2C, LEDs and Resistors, Jumper Wires, Piano with MIDI Support
+
+`FIRST UPLOAD CODE TO ARDUINO, THEN RUN PROCESSING CODE ON PROCESSING IDLE WITH THE MIDI KEYBOARD PLUGGED IN`
