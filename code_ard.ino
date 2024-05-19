@@ -39,7 +39,7 @@ void loop() {
   {
     played = Serial.read();
     lcd.print(check(played));
-    if (played == 72){all_off();digitalWrite(Cm, HIGH);}
+    if (played == 72){all_off();lcd.clear();digitalWrite(Cm, HIGH);lcd.print("C");}
   }
   
 }
@@ -50,13 +50,13 @@ String check(int n)
   Serial.println(n);
   for (int i=0; i<5; i++)
   {
-    if (c[i] == n){all_off();digitalWrite(C, HIGH);return "C";}
-    else if (d[i] == n){all_off();digitalWrite(D, HIGH);return "D";}
-    else if (e[i] == n){all_off();digitalWrite(E, HIGH);return "E";}
-    else if (f[i] == n){all_off();digitalWrite(F, HIGH);return "F";}
-    else if (g[i] == n){all_off();digitalWrite(G, HIGH);return "G";}
-    else if (a[i] == n){all_off();digitalWrite(A, HIGH);return "A";}
-    else if (b[i] == n){all_off();digitalWrite(B, HIGH);return "B";}
+    if (c[i] == n && n!=72){all_off();digitalWrite(C, HIGH);lcd.clear();return "C";}
+    else if (d[i] == n){all_off();digitalWrite(D, HIGH);lcd.clear();return "D";}
+    else if (e[i] == n){all_off();digitalWrite(E, HIGH);lcd.clear();return "E";}
+    else if (f[i] == n){all_off();digitalWrite(F, HIGH);lcd.clear();return "F";}
+    else if (g[i] == n){all_off();digitalWrite(G, HIGH);lcd.clear();return "G";}
+    else if (a[i] == n){all_off();digitalWrite(A, HIGH);lcd.clear();return "A";}
+    else if (b[i] == n){all_off();digitalWrite(B, HIGH);lcd.clear();return "B";}
   }
 }
 
