@@ -1,69 +1,24 @@
-#include <LiquidCrystal_I2C.h>
+import promidi.*;
+import processing.serial.*;
 
-// defining SARGAM Notes
-#define C 2
-#define D 3
-#define E 4
-#define F 5
-#define G 6
-#define A 7
-#define B 8
-#define Cm 9
+//Defining variables
+Serial myport;
+MidiIO midiIO;
 
-// defining midi notes
-int c[] = {60, 48, 36, 72, 84};
-int d[] = {62, 74, 50, 38, 86};
-int e[] = {64, 76,52, 40, 88};
-int f[] = {65, 77, 53, 41,89};
-int g[] = {67, 79, 55, 43,91};
-int a[] = {69, 81, 57, 45, 93};
-int b[] = {71, 83, 59, 47, 95};
-
-int played;
-LiquidCrystal_I2C lcd(0x27, 16, 2);
-
-void setup() {
-  Serial.begin(9600);
-  
-  lcd.init();
-  lcd.backlight();
-  
-  for (int i=2; i<10; i++){pinMode(i, OUTPUT);}
-}
-
-void loop() {
-//  for (int i=2; i<10; i++){digitalWrite(i, HIGH);}
-  
-  lcd.setCursor(0,0);
-  if (Serial.available())
-  {
-    played = Serial.read();
-    lcd.print(check(played));
-    if (played == 72){all_off();lcd.clear();digitalWrite(Cm, HIGH);lcd.print("C");}
-  }
-  
-}
-
-String check(int n)
+void setup()
 {
-  
-  Serial.println(n);
-  for (int i=0; i<5; i++)
-  {
-    if (c[i] == n && n!=72){all_off();digitalWrite(C, HIGH);lcd.clear();return "C";}
-    else if (d[i] == n){all_off();digitalWrite(D, HIGH);lcd.clear();return "D";}
-    else if (e[i] == n){all_off();digitalWrite(E, HIGH);lcd.clear();return "E";}
-    else if (f[i] == n){all_off();digitalWrite(F, HIGH);lcd.clear();return "F";}
-    else if (g[i] == n){all_off();digitalWrite(G, HIGH);lcd.clear();return "G";}
-    else if (a[i] == n){all_off();digitalWrite(A, HIGH);lcd.clear();return "A";}
-    else if (b[i] == n){all_off();digitalWrite(B, HIGH);lcd.clear();return "B";}
-  }
+  myport = new Serial(this, "COM7", 9600);
+  midiIO = MidiIO.getInstance(this);
+  midiIO.printDevices(); //prints avaliable devices including midis
+  midiIO.openInput(0,0); //opens the required channel having desired device
 }
 
-void all_off()
+void draw(){}
+
+void noteOn(Note note, int deviceNum, int midiChan)
 {
-  for(int i=2; i<10;i++)
-  {
-    digitalWrite(i, LOW);
-  }
+  int vel = note.getVelocity();
+  int pitch = note.getPitch();
+  myport.write(pitch); //sends pitch data to arduino via port/serial communication
+  println(pitch);
 }
