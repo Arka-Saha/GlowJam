@@ -27,5 +27,5 @@ An Arduino-based project that synchronizes LED lights with each piano note playe
    ```bash
    git clone https://github.com/your-username/arduino-midi-piano-light-sync.git
 
-[![Watch the video](images/thumb.jpg)](https://www.youtube.com/shorts/S24zafz9j14)
+[![Watch the video](images/thum.png)](https://www.youtube.com/shorts/S24zafz9j14)
 
