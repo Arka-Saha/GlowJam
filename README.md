@@ -1,9 +1,31 @@
-# Piano-Lights by ARKA
-## Using MIDI Services
+# Arduino MIDI Piano Light Sync
 
-### Packages Used: ProMIDI, LCDi2c
-### Components: Arduino UNO, LCD, I2C, LEDs and Resistors, Jumper Wires, Piano with MIDI Support
+An Arduino-based project that synchronizes LED lights with each piano note played on an external MIDI-supported piano. The project uses MIDI services to detect the keys played on the piano and glows the corresponding lights in sync.
 
-`FIRST UPLOAD CODE TO ARDUINO, THEN RUN PROCESSING CODE ON PROCESSING IDLE WITH THE MIDI KEYBOARD PLUGGED IN`
+## Features
 
-``PROMIDI LIB:`` https://github.com/dearmash/Processing/blob/master/libraries/promidi/promidi/package.html
+- **MIDI Integration:** Connects to a MIDI-supported piano to receive information about the notes played.
+- **LED Synchronization:** Lights up LEDs corresponding to the notes played, creating a visual representation of the music.
+- **Real-Time Response:** Minimal latency ensures lights respond instantly to the notes played.
+
+## Components Used
+
+- Arduino (e.g., Arduino Uno)
+- LED Strip or individual LEDs
+- MIDI interface (e.g., MIDI shield or USB MIDI adapter)
+- Resistors, wires, and breadboard
+
+## How It Works
+
+1. The Arduino receives MIDI signals from the piano.
+2. It processes the MIDI data to identify the specific note played.
+3. Corresponding LEDs are triggered to light up in sync with the notes.
+
+## Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/arduino-midi-piano-light-sync.git
+
+[![Watch the video](images/thumb.jpg)](https://www.youtube.com/shorts/S24zafz9j14)
+
