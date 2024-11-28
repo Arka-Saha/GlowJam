@@ -25,7 +25,7 @@ An Arduino-based project that synchronizes LED lights with each piano note playe
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/arduino-midi-piano-light-sync.git
+   git clone https://github.com/Arka-Saha/GlowJam.git
 
 ## Check out the [demo video](https://www.youtube.com/watch?v=your-demo-video-link)!
 
